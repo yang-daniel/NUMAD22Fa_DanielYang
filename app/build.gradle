@@ -7,7 +7,7 @@ android {
         config {
             keyAlias 'myFirstKey'
             keyPassword 'testpassword123'
-            storePassword 'myStorePassword'
+            storePassword 'testpassword123'
             storeFile file('D:\\School\\Align\\Fall 22\\Mobile App Development\\keystore.jks')
         }
     }
