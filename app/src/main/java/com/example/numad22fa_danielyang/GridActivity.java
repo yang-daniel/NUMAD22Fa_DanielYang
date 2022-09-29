@@ -18,7 +18,6 @@ public class GridActivity extends AppCompatActivity {
         setContentView(R.layout.activity_grid);
     }
 
-    // is there a better way to do this?
     public void onClick_btn_A(View view) {
         Button btn = (Button)findViewById(R.id.btn_A);
         TextView textView = findViewById(R.id.textView);
