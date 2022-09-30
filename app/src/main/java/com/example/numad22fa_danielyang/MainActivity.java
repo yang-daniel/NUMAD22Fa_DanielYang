@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button about_me_btn;
@@ -27,13 +25,18 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
     public void onAboutMe(View view) {
-        Intent intent = new Intent(this, aboutActivity.class);
+        Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
 
 
     public void onClickyClicky(View view) {
         Intent intent = new Intent(this, GridActivity.class);
+        startActivity(intent);
+    }
+
+    public void onLinkCollector(View view) {
+        Intent intent = new Intent(this, LinkCollectorActivity.class);
         startActivity(intent);
     }
 }

@@ -14,7 +14,10 @@
         android:theme="@style/Theme.NUMAD22Fa_DanielYang"
         tools:targetApi="31">
         <activity
-            android:name=".aboutActivity"
+            android:name=".LinkCollectorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
             android:exported="false" />
         <activity
             android:name=".GridActivity"
