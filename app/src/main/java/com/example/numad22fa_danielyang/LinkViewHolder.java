@@ -16,4 +16,11 @@ public class LinkViewHolder extends RecyclerView.ViewHolder {
         this.name = itemView.findViewById(R.id.name);
         this.Url = itemView.findViewById(R.id.Url);
     }
+
+    public TextView getName() {
+        return name;
+    }
+    public TextView getUrl() {
+        return Url;
+    }
 }

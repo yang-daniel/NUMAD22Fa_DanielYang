@@ -2,6 +2,7 @@ package com.example.numad22fa_danielyang;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -37,14 +38,16 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkViewHolder> {
     @Override
     public LinkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Create an instance of the viewholder by passing it the layout inflated as view and no root.
-        return new LinkViewHolder(LayoutInflater.from(context).inflate(R.layout.item_link, null));
+//        return new LinkViewHolder(LayoutInflater.from(context).inflate(R.layout.item_link, null));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_link, parent, false);
+        return new LinkViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull LinkViewHolder holder, int position) {
         // sets the name of the link to the name textview of the viewholder.
         holder.name.setText(links.get(position).getName());
-        // sets the url of the link to the age textview of the viewholder.
+        // sets the url of the link to the url textview of the viewholder.
         holder.Url.setText(links.get(position).getUrl());
 
         // set a click event on the whole itemView (every element of the recyclerview).
