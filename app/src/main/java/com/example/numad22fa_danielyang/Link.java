@@ -2,9 +2,9 @@ package com.example.numad22fa_danielyang;
 
 public class Link {
 
-    private final String name;
+    private String name;
 
-    private final String Url;
+    private String Url;
 
     /**
      * Constructs a link object with the specified name and Url.
@@ -23,5 +23,13 @@ public class Link {
 
     public String getUrl() {
         return Url;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUrl(String url) {
+        this.Url= url;
     }
 }

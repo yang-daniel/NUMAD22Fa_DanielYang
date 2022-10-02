@@ -6,6 +6,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+/*
+    Defunct class now that logic has been moved to LinkCollectorActivity
+ */
 public class LinkViewHolder extends RecyclerView.ViewHolder {
 
     public TextView name;

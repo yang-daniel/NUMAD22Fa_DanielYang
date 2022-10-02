@@ -1,12 +1,16 @@
 package com.example.numad22fa_danielyang;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -18,7 +22,7 @@ import java.util.List;
  * utilised for binding the data to the view. The explanation of each method is provided in comments
  * within the methods.
  */
-public class LinkAdapter extends RecyclerView.Adapter<LinkViewHolder> {
+public class LinkAdapter extends RecyclerView.Adapter<LinkAdapter.CustomViewHolder> {
 
     private final List<Link> links;
     private final Context context;
@@ -36,24 +40,18 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkViewHolder> {
 
     @NonNull
     @Override
-    public LinkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Create an instance of the viewholder by passing it the layout inflated as view and no root.
-//        return new LinkViewHolder(LayoutInflater.from(context).inflate(R.layout.item_link, null));
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_link, parent, false);
-        return new LinkViewHolder(view);
+        return new CustomViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LinkViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         // sets the name of the link to the name textview of the viewholder.
-        holder.name.setText(links.get(position).getName());
+        holder.link_name.setText(links.get(position).getName());
         // sets the url of the link to the url textview of the viewholder.
-        holder.Url.setText(links.get(position).getUrl());
-
-        // set a click event on the whole itemView (every element of the recyclerview).
-        holder.itemView.setOnClickListener(view -> {
-            Toast.makeText(context, links.get(position).getName(), Toast.LENGTH_SHORT).show();
-        });
+        holder.link_url.setText(links.get(position).getUrl());
     }
 
     @Override
@@ -61,4 +59,34 @@ public class LinkAdapter extends RecyclerView.Adapter<LinkViewHolder> {
         // Returns the size of the recyclerview that is the list of the arraylist.
         return links.size();
     }
+
+    public class CustomViewHolder extends RecyclerView.ViewHolder {
+        TextView link_name;
+        TextView link_url;
+
+        ConstraintLayout linkCollectorMainPage;
+
+        public CustomViewHolder(@NonNull View linkView) {
+            super(linkView);
+
+            link_name = linkView.findViewById(R.id.name);
+            link_url = linkView.findViewById(R.id.Url);
+
+            linkCollectorMainPage = linkView.findViewById(R.id.link_collector_main_page);
+            link_url.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String website = link_url.getText().toString();
+                    try {
+                        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
+                        context.startActivity(browse);
+                    } catch (Exception e) {
+                        System.out.println("Invalid URL");
+
+                    }
+                }
+            });
+        }
+    }
+
 }
