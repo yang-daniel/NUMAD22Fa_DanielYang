@@ -2,32 +2,59 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="1dp"
-        android:layout_toStartOf="@id/Url"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="test test" />
+        android:layout_marginStart="15dp"
+        android:text="placeholder name"
+        app:layout_constraintLeft_toRightOf="@id/item_name"
+        app:layout_constraintTop_toTopOf="@+id/item_name" />
 
     <TextView
         android:id="@+id/Url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/name"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="www.google.com" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="placeholder url"
+        app:layout_constraintLeft_toRightOf="@id/item_url"
+        app:layout_constraintTop_toTopOf="@id/name"
+        tools:layout_editor_absoluteX="102dp" />
 
+    <View
+        android:id="@+id/item_divider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@id/Url"
+        tools:layout_editor_absoluteX="1dp"/>
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold"
+        android:text="Name:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:text="Url:"
+        android:onClick="onLinkClick"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_name"
+        app:layout_constraintTop_toTopOf="@id/item_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
