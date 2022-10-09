@@ -3,13 +3,14 @@ package com.example.numad22fa_danielyang;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class PrimeDirectiveActivity extends AppCompatActivity {
@@ -49,11 +50,36 @@ public class PrimeDirectiveActivity extends AppCompatActivity {
     //Back button listener
     @Override
     public void onBackPressed() {
-        if (running.get()) {
-            super.onBackPressed();
+        //super.onBackPressed();
+        if (running.get()){
+            onTerminate("Do you want to terminate the search?");
+        } else {
+            android.os.Process.killProcess(android.os.Process.myPid());
         }
     }
 
+    public void onTerminate(String alertMessage) {
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                        break;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(alertMessage)
+                .setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
+    }
     //Class which implements the Runnable interface.
     class runnableThread implements Runnable {
 
