@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocatorActivity">
+
+    <TextView
+        android:id="@+id/locator_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longitude:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locator_latitude"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <TextView
+        android:id="@+id/locator_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude:"
+        app:layout_constraintBottom_toTopOf="@+id/locator_longitude"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <TextView
+        android:id="@+id/locator_longitude_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TBD"
+        tools:layout_editor_absoluteX="137dp"
+        app:layout_constraintLeft_toRightOf="@id/locator_longitude"
+        app:layout_constraintTop_toTopOf="@id/locator_longitude"
+        android:layout_marginLeft="20dp"
+        tools:layout_editor_absoluteY="227dp" />
+
+    <TextView
+        android:id="@+id/locator_latitude_sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TBD"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toRightOf="@id/locator_latitude"
+        app:layout_constraintTop_toTopOf="@id/locator_latitude"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="473dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

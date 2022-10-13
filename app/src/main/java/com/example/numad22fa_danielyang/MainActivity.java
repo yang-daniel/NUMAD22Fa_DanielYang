@@ -36,4 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PrimeDirectiveActivity.class);
         startActivity(intent);
     }
+
+    public void onLocation(View view) {
+        Intent intent = new Intent(this, LocatorActivity.class);
+        startActivity(intent);
+    }
 }
